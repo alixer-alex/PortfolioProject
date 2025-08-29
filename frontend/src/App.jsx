@@ -1,5 +1,6 @@
 import './App.css'
 import React, { useLayoutEffect, useRef } from 'react'
+import Button from './Button'
 import { gsap } from 'gsap'
 import { useGSAP } from "@gsap/react";
 import { SplitText } from 'gsap/SplitText'
@@ -8,6 +9,7 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import {Draggable} from 'gsap/Draggable'
 import {InertiaPlugin} from 'gsap/InertiaPlugin'
 import lanterns from './assets/lanterns.JPG'
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 gsap.registerPlugin(useGSAP, InertiaPlugin, Draggable, SplitText, ScrollTrigger, ScrollSmoother)
 
@@ -22,7 +24,7 @@ function App() {
       });
       // Intro animations
       const hello = new SplitText('#hello', { type: 'words,chars' })
-      gsap.from(hello.chars, { duration: 1, autoAlpha: 0, stagger: 0.05 })
+      gsap.from(hello.chars, { duration: 1, autoAlpha: 0, stagger: 0.07, y:50 })
       gsap.from("#lanterns", { duration: 1, autoAlpha: 0, stagger: 0.05 })
       const begin = new SplitText('#begin', { type: 'words,chars' })
       gsap.from(begin.chars, { duration: 1, autoAlpha: 0, stagger: 0.01 })
@@ -74,13 +76,11 @@ function App() {
             </div>
           </div>
     
-          <div className=" py-50 min-w-screen min-h-screen">
-            <div className = "">
-              <div className="flex justify-center pb-20">
-                <h1 id="project-text" className="text-8xl">Here are some things I've done!</h1>
-              </div>
+          <div className="flex flex-col py-50 min-w-screen min-h-screen">
+            <div className="flex justify-center pb-20">
+              <h1 id="project-text" className="text-8xl">Here are some things I've done!</h1>
             </div>
-            <div className = "px-6 ">
+            <div className = "flex px-6 justify-center">
               <div id="project-cards" className="flex py-5 rounded-lg items-stretch px-16 justify-center text-center gap-6">
                 <div className="project-card py-5 flex-1 shadow-lg border-2 rounded-sm bg-white">
                   <h2 className="text-3xl">Checkers AI</h2>
@@ -107,8 +107,22 @@ function App() {
                 </div>
               </div>
             </div>
+            
           </div>
-
+          
+          <div className = "flex-col mt-auto ">
+              <hr className = "flex pb-5"/>
+              <div className = "flex pl-10 pb-4 gap-8 ">
+              <Button link = "https://www.linkedin.com/in/alex-r-zhuang-45b99a27b/" name = "LinkedIn" Image = {FaLinkedin}/>
+              <Button link = "https://github.com/alixer-alex" name = "GitHub" Image = {FaGithub}/>
+              <Button link = "mailto:azhuang3@uci.edu" name = "Email" Image = {FaEnvelope}/>
+              <div className ="ml-auto mt-auto">
+                © 2025 Alex Zhuang. All rights reserved.
+              </div>
+              </div>
+              
+          </div>
+          
         </div>
       </div>
       
