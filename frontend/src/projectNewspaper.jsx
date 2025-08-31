@@ -25,7 +25,7 @@ function ProjectNewspaper(){
 
     )
     return(
-        <div ref={root} className=" flex min-h-screen min-w-screen items-center text-center justify-center ">
+        <div ref={root} className=" flex min-h-screen font-serif py-2 min-w-screen items-center text-center justify-center ">
             <div className = "flex flex-col max-w-7xl bg-radial from-newspaper to-black to-800%">
                 <div className="flex border-2 px-8 py-4 items-center  justify-center ">
                     <h1 className="text-7xl">My Projects!</h1>
