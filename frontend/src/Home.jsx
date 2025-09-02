@@ -28,9 +28,9 @@ function Home() {
 
     const hello = new SplitText('#hello', { type: 'words,chars' })
     gsap.from(hello.chars, { duration: 1, autoAlpha: 0, stagger: 0.07, y: 50 })
-    gsap.from("#lanterns", { duration: 1, autoAlpha: 0, stagger: 0.05 })
+    gsap.from("#lanterns", { duration: 1.5, autoAlpha: 0, stagger: 0.05 })
     const begin = new SplitText('#begin', { type: 'words,chars' })
-    gsap.from(begin.chars, { duration: 1, autoAlpha: 0, stagger: 0.01 })
+    gsap.from(begin.chars, { duration: 1.5, autoAlpha: 0, stagger: 0.01 })
 
     const projectText = new SplitText('#project-text', { type: 'chars' })
     gsap.from(projectText.chars, {
@@ -56,6 +56,14 @@ function Home() {
         y: 50,
       })
     })
+    gsap.from("#footer", {       
+        scrollTrigger: {
+        trigger: '#project-cards',
+        start: 'bottom 80%',
+        markers: true,
+        toggleActions: 'play none none reverse',
+        },
+        duration: 1, autoAlpha: 0, stagger: 0.05 })
   }, { scope: root });
 
   return (
@@ -63,14 +71,20 @@ function Home() {
       <div id="smooth-content" className="flex flex-col min-h-screen">
 
         <div className="flex flex-col flex-grow px-10 items-center justify-center min-h-screen">
-          <div className="text-center">
-            <h1 id="hello" className="text-8xl pb-3">Hello!</h1>
-            <img
+          <div className="flex flex-col text-center items-center justify-center">
+            <h1 id="hello" className="text-8xl pb-3">Hello! I'm Alex!</h1>
+              <img
               id="lanterns"
               src={seals}
-              className="object-cover object-center aspect-square h-96 w-96 mx-auto"
+              className="flex object-cover object-center aspect-square h-96 w-96"
               alt="myPhoto"
             />
+              <div id="lanterns" className = "flex items-start pt-5">
+              <Button link="https://www.linkedin.com/in/alex-r-zhuang-45b99a27b/" name="LinkedIn" Image={FaLinkedin} />
+              <Button link="https://github.com/alixer-alex" name="GitHub" Image={FaGithub} />
+              <Button link="mailto:azhuang3@uci.edu" name="Email" Image={FaEnvelope} />
+            </div>
+            
             <h1 id="begin" className="text-5xl pt-5">
               This is a little website I made showing off all of the cool things that I've made and what I've been up to!
             </h1>
@@ -131,15 +145,10 @@ function Home() {
           </div>
         </div>
 
-        <footer className="w-full  mt-auto py-6 bg-white">
-          <h2 className="text-6xl text-center mb-6">Connect With Me!</h2>
+        <footer id="footer" className="w-full  mt-auto py-6 bg-white">
+          <h2 className="text-6xl text-center mb-6"></h2>
           <div className="flex flex-col pt-5 border-t md:flex-row items-center justify-between px-8 text-lg gap-4">
-            <div className="flex gap-4">
-              <Button link="https://www.linkedin.com/in/alex-r-zhuang-45b99a27b/" name="LinkedIn" Image={FaLinkedin} />
-              <Button link="https://github.com/alixer-alex" name="GitHub" Image={FaGithub} />
-              <Button link="mailto:azhuang3@uci.edu" name="Email" Image={FaEnvelope} />
-            </div>
-            <div className="text-sm text-gray-500 text-center md:text-right">
+            <div className="text-sm text-gray-500 text-center md:text-right ml-auto">
               ©2025 Alex Zhuang. All rights reserved.
             </div>
           </div>

@@ -6,13 +6,96 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { Draggable } from 'gsap/Draggable'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'
+import checkers from './assets/Checkers.mp4'
+import searchengine from './assets/searchEngine.mp4'
+import brat from './assets/Brat.PNG'
+import rose from './assets/rose.svg'
 
+function HorizontalElement(props){
+    if (props.sourceType =="Video"){
+        
+        return(
+            <>
+            <div className = "flex p-2 border-b-2">
+                <div className = "flex flex-col p-2 w-1/2">
+                    <h2 className="text-3xl">{props.title}</h2>
+                    <p style = {{ whiteSpace: 'pre-wrap' }}className="pt-2 px-5">
+                        {props.description}
+
+                    </p>
+                </div>
+                <div className="w-1/2 flex ">
+                    <video controls className=" w-full object-fill rounded ">
+                        <source src={props.source} type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            </>
+
+        )
+    }
+    return(
+        <>
+        <div className = "flex p-2 border-b-2">
+            <div className = "flex flex-col p-2 w-1/2">
+                <h2 className="text-3xl">{props.title}</h2>
+                <p style = {{ whiteSpace: 'pre-wrap' }}className="pt-2 px-5">
+                    {props.description}
+
+                </p>
+            </div>
+            <div className="w-1/2 flex ">
+                <a href={props.link} target="_blank" rel="noreferrer">
+                    <img src={props.source} className="px-2 object-cover aspect-video" alt="" />
+                </a>
+            </div>
+        </div>
+        </>
+
+    )
+}
+function VerticalElement(props){
+    if (props.sourceType =="Video"){
+    return(
+        <>
+            <div className ="flex flex-col p-2 border-b-2 ">
+                <h2 className="text-3xl">{props.title}</h2>
+                <p style = {{ whiteSpace: 'pre-wrap' }} className="pt-2 px-5">
+                    {props.description}
+                </p>
+                <video controls className=" w-full  object-fill rounded ">
+                    <source src={props.source} type="video/mp4" />
+                </video>
+            </div>
+        </>
+
+    )
+    }
+    return(
+        <>
+            <div className ="flex flex-col p-2 border-b-2">
+                <h2 className="text-3xl">{props.title}</h2>
+                <p style = {{ whiteSpace: 'pre-wrap' }} className="pt-2 px-5">
+                    {props.description}
+                </p>
+                <a href={props.link} target="_blank" rel="noreferrer">
+                    <img src={props.source} className="px-2 object-cover aspect-video" alt="" />
+                </a>
+            </div>
+        </>
+
+    )
+}
 gsap.registerPlugin(useGSAP, InertiaPlugin, Draggable, SplitText, ScrollTrigger, ScrollSmoother)
 function ProjectNewspaper(){
     const [currentDate, setCurrentDate] = useState(new Date());
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     const root = useRef()
     useGSAP(() => {
                 ScrollSmoother.create({
+                wrapper: "#smooth-wrapper",
+                content: "#smooth-content",
                 smooth: 1,
                 effects: true,
                 smoothTouch: 0.1,
@@ -25,18 +108,42 @@ function ProjectNewspaper(){
 
     )
     return(
-        <div ref={root} className=" flex min-h-screen font-serif py-2 min-w-screen items-center text-center justify-center ">
-            <div className = "flex flex-col max-w-7xl bg-radial from-newspaper to-black to-800%">
-                <div className="flex border-2 px-8 py-4 items-center  justify-center ">
-                    <h1 className="text-7xl">My Projects!</h1>
+        <div ref={root} id = "smooth-wrapper" >
+            <div id = "smooth-content" className=" flex min-h-screen font-serif py-2 min-w-screen items-center text-center justify-center ">
+            <div  className = "flex flex-col max-w-7xl bg-radial from-newspaper to-black to-800%">
+                    <div className="flex border-double border-4 px-8 py-4 items-center  justify-between ">
+                        <div className = "h-32 w-32"></div>
+                        <h1 className=" text-7xl">My Projects!</h1>
+                        <img src={rose} className=" object-cover h-32 w-32 " /> 
+                    </div>
+                <div className = "flex border-double border-l-4 border-r-4  text-2xl min-w-7xl justify-center">
+                    {days[currentDate.getDay()]}, {months[currentDate.getMonth()]} {currentDate.getDay()}, {currentDate.getFullYear()}
                 </div>
-                <div className = "flex border-l-2 border-r-2 text-2xl min-w-7xl justify-center">
-                    {currentDate.toLocaleDateString()}
-                </div>
-                <div className = "flex border-2  min-w-7xl min-h-screen">
+                <div className = "flex border-double border-4 min-w-7xl min-h-screen">
+                    <div className = "flex flex-col flex-2 border-r items-stretch  w-full">
+                    <HorizontalElement title= "Checkers AI" 
+                    description="• Developed a competitive Checkers AI from scratch, achieving a ∼70% win rate 
+• Deployed the Monte Carlo Tree Search algorithm to make moves, reaching 99% accuracy  
+• Optimized decision-making to ~30s per move through pruning & evaluation"
+                    source = {checkers} sourceType = "Video"/>
+                    <HorizontalElement title= "Web Crawler" 
+                    description="• Engineered a high-performance search engine indexing 50K+ docs
+• Built proprietary crawler + inverted index with SimHash + PageRank
+• Achieved sub-0.3s latency with optimized indexing, caching, and ranking"
+                    source = {searchengine} sourceType = "Video"/>
 
+                    </div>
+                    <div className = "flex flex-col flex-1">
+                        <VerticalElement title= "Brat Weather" description="• Used Nominatim + NWS API for a weather app in Charli XCX’s Brat theme
+• Flask backend + React frontend, deployed on Vercel
+• Click image to view!" source = {brat} sourceType = "Image" link = "https://brat-weather.vercel.app/"/>
+                        <VerticalElement title= "Brat Weather" description="• Used Nominatim + NWS API for a weather app in Charli XCX’s Brat theme
+• Flask backend + React frontend, deployed on Vercel
+• Click image to view!" source = {brat} sourceType = "Image" link = "https://brat-weather.vercel.app/"/>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
 
     )
