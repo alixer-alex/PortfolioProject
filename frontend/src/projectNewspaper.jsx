@@ -8,7 +8,7 @@ import { Draggable } from 'gsap/Draggable'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'
 import checkers from './assets/Checkers.mp4'
 import searchengine from './assets/searchEngine.mp4'
-import brat from './assets/Brat.PNG'
+import brat from './assets/Brat.png'
 import rose from './assets/rose.svg'
 
 function HorizontalElement(props){
