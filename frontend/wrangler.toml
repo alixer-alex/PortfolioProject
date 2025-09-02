@@ -1,4 +1,5 @@
 name = "portfolio"
-main = "./dist"
 compatibility_date = "2023-09-01"
 
+[site]
+bucket = "./dist"
