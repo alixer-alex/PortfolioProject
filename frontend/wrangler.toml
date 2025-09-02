@@ -1,6 +1,4 @@
 name = "portfolio"
-main = "worker.js"
+main = "./dist/index.html"
 compatibility_date = "2023-09-01"
 
-[site]
-bucket = "./dist"
