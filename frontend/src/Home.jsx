@@ -60,7 +60,6 @@ function Home() {
         scrollTrigger: {
         trigger: '#project-cards',
         start: 'bottom 80%',
-        markers: true,
         toggleActions: 'play none none reverse',
         },
         duration: 1, autoAlpha: 0, stagger: 0.05 })
@@ -72,32 +71,32 @@ function Home() {
 
         <div className="flex flex-col flex-grow px-10 items-center justify-center min-h-screen">
           <div className="flex flex-col text-center items-center justify-center">
-            <h1 id="hello" className="text-8xl pb-3">Hello! I'm Alex!</h1>
+            <h1 id="hello" className="text-4xl md:text-8xl pb-3">Hello! I'm Alex!</h1>
               <img
               id="lanterns"
               src={seals}
               className="flex object-cover object-center aspect-square h-96 w-96"
               alt="myPhoto"
             />
-              <div id="lanterns" className = "flex items-start pt-5">
+              <div id="lanterns" className = "flex flex-row items-start pt-5">
               <Button link="https://www.linkedin.com/in/alex-r-zhuang-45b99a27b/" name="LinkedIn" Image={FaLinkedin} />
               <Button link="https://github.com/alixer-alex" name="GitHub" Image={FaGithub} />
               <Button link="mailto:azhuang3@uci.edu" name="Email" Image={FaEnvelope} />
             </div>
             
-            <h1 id="begin" className="text-5xl pt-5">
+            <h1 id="begin" className="text-4xl md:text-8xl pt-5">
               This is a little website I made showing off all of the cool things that I've made and what I've been up to!
             </h1>
           </div>
         </div>
 
         <div className="flex flex-col py-20">
-          <div className="flex justify-center pb-10">
-            <h1 id="project-text" className="text-8xl">Here are some things I've done!</h1>
+          <div className="flex text-center items-center justify-center pb-10">
+            <h1 id="project-text" className=" text-4xl md:text-8xl">Here are some things I've done!</h1>
           </div>
 
           <div className="flex justify-center px-6">
-            <div id="project-cards" className="flex py-5 rounded-lg items-stretch px-16 justify-center text-center gap-6 max-w-7xl">
+            <div id="project-cards" className="flex flex-col md:flex-row py-5 rounded-lg items-stretch md:px-16 justify-center text-center gap-6 max-w-7xl">
               
               <div className="project-card py-5 flex-1 flex flex-col shadow-lg border-2 rounded-sm bg-white">
                 <h2 className="text-3xl">Checkers AI</h2>
@@ -140,14 +139,14 @@ function Home() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center px-3 py-6 text-xl">
-            <a href="./projects" className="hover:text-gray-500">See More!</a>
+          <div className="flex items-center justify-center text-center py-6 text-xl">
+            <a href="./projects" className="hover:text-gray-500 ">See More!</a>
           </div>
         </div>
 
         <footer id="footer" className="w-full  mt-auto py-6 bg-white">
           <h2 className="text-6xl text-center mb-6"></h2>
-          <div className="flex flex-col pt-5 border-t md:flex-row items-center justify-between px-8 text-lg gap-4">
+          <div className="flex flex-col pt-5 border-t md:flex-row items-center justify-center px-8 text-lg gap-4">
             <div className="text-sm text-gray-500 text-center md:text-right ml-auto">
               ©2025 Alex Zhuang. All rights reserved.
             </div>
