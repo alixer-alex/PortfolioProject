@@ -69,9 +69,9 @@ function Home() {
     <div ref={root} id="smooth-wrapper">
       <div id="smooth-content" className="flex flex-col min-h-screen">
 
-        <div className="flex flex-col flex-grow px-10 items-center justify-center min-h-screen">
-          <div className="flex flex-col text-center items-center justify-center">
-            <h1 id="hello" className="text-4xl md:text-8xl pb-3">Hello! I'm Alex!</h1>
+        <div className="flex flex-col flex-grow px-25 items-center justify-center min-h-screen">
+          <div className="flex flex-col text-center items-center justify-center ">
+            <h1 id="hello" className="text-4xl md:text-6xl pb-3">Hello! I'm Alex!</h1>
               <img
               id="lanterns"
               src={seals}
@@ -84,15 +84,15 @@ function Home() {
               <Button link="mailto:azhuang3@uci.edu" name="Email" Image={FaEnvelope} />
             </div>
             
-            <h1 id="begin" className="text-4xl md:text-8xl pt-5">
+            <h1 id="begin" className="text-3xl md:text-5xl pt-5">
               This is a little website I made showing off all of the cool things that I've made and what I've been up to!
             </h1>
           </div>
         </div>
 
         <div className="flex flex-col px-10 items-center justify-center text-center flex-grow py-20">
-          <div className="flex flex-col text-center items-center border justify-center">
-            <h1 id="project-text" className="text-3xl pb-10 border md:text-8xl break-normal">Here are some things I've done!</h1>
+          <div className="flex flex-col text-center items-center justify-center">
+            <h1 id="project-text" className="text-3xl pb-10 md:text-5xl break-normal">Here are some things I've done!</h1>
 
           <div className="flex justify-center px-6">
             <div id="project-cards" className="flex flex-col md:flex-row py-5 rounded-lg items-stretch md:px-16 justify-center text-center gap-6 max-w-7xl">
