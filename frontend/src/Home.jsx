@@ -20,12 +20,14 @@ function Home() {
   const root = useRef()
 
   useGSAP(() => {
-    ScrollSmoother.create({
-      smooth: 1,
-      effects: true,
-      smoothTouch: 0.1,
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 800px)", () => {
+      ScrollSmoother.create({
+        smooth: 1,
+        effects: true,
+        smoothTouch: 0.1,
+      })
     })
-
     const hello = new SplitText('#hello', { type: 'words,chars' })
     gsap.from(hello.chars, { duration: 1, autoAlpha: 0, stagger: 0.07, y: 50 })
     gsap.from("#lanterns", { duration: 1.5, autoAlpha: 0, stagger: 0.05 })

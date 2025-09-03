@@ -93,13 +93,14 @@ function ProjectNewspaper(){
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     const root = useRef()
     useGSAP(() => {
-                ScrollSmoother.create({
-                wrapper: "#smooth-wrapper",
-                content: "#smooth-content",
-                smooth: 1,
-                effects: true,
-                smoothTouch: 0.1,
-            })}, {scope: root})
+        let mm = gsap.matchMedia();
+        mm.add("(min-width: 800px)", () => {
+            ScrollSmoother.create({
+            smooth: 1,
+            effects: true,
+            smoothTouch: 0.1,
+            })
+        })}, {scope: root})
     useEffect(
         () => {
 
@@ -111,10 +112,12 @@ function ProjectNewspaper(){
         <div ref={root} id = "smooth-wrapper" >
             <div id = "smooth-content" className=" flex min-h-screen font-serif  px-2 md:p-0 py-2 min-w-screen items-center text-center justify-center ">
             <div className = "flex flex-col  md:max-w-7xl bg-radial from-newspaper to-black to-800%">
-                    <div className="flex border-double border-4 md:px-8 py-4 items-center text-center justify-between ">
+                    <div className="flex border-double border-4 px-2 md:px-8 py-4 items-center text-center justify-between ">
                         <div className = "h-8 w-8 md:flex md:h-32 md:w-32 "></div>
                         <h1 className=" flex text-4xl md:text-7xl  ">My Projects!</h1>
+                        <a  href="/">
                         <img src={rose} className=" flex object-cover h-8 w-8  md:h-32 md:w-32  " /> 
+                        </a>
                     </div>
                 <div className = "flex border-double border-l-4 border-r-4  text-2xl md:min-w-7xl justify-center">
                     {days[currentDate.getDay()]}, {months[currentDate.getMonth()]} {currentDate.getDay()}, {currentDate.getFullYear()}
