@@ -34,6 +34,29 @@ function HorizontalElement(props){
 
         )
     }
+    if (props.sourceType == "iframe"){
+        return(
+        <>
+        <div className = "flex md:flex-row flex-col p-2 border-b-2">
+            <div className = "flex flex-col p-2 md:w-1/2">
+                <h2 className="text-3xl">{props.title}</h2>
+                <p style = {{ whiteSpace: 'pre-wrap' }}className="pt-2 px-5">
+                    {props.description}
+
+                </p>
+            </div>
+            <div className="md:w-1/2 flex ">
+                 <iframe
+                src={props.source}
+                allow="autoplay"
+                className = "image w-full"
+                />
+            </div>
+        </div>
+        </>
+
+    )
+    }
     return(
         <>
         <div className = "flex md:flex-row flex-col p-2 border-b-2">
@@ -66,6 +89,24 @@ function VerticalElement(props){
                 <video controls className=" w-full  object-fill rounded ">
                     <source src={props.source} type="video/mp4" />
                 </video>
+            </div>
+        </>
+
+    )
+    }
+    if (props.sourceType == "iframe"){
+            return(
+        <>
+            <div className ="flex flex-col p-2 border-b-2 ">
+                <h2 className="text-3xl">{props.title}</h2>
+                <p style = {{ whiteSpace: 'pre-wrap' }} className="pt-2 px-5">
+                    {props.description}
+                </p>
+                <iframe
+                src={props.source} 
+                allow="autoplay"
+                className = "image w-full h-full"
+                />
             </div>
         </>
 
@@ -134,15 +175,21 @@ function ProjectNewspaper(){
 • Built proprietary crawler + inverted index with SimHash + PageRank
 • Achieved sub-0.3s latency with optimized indexing, caching, and ranking"
                     source = {searchengine} sourceType = "Video"/>
+                    <HorizontalElement title= "WorldWeaver" 
+                    description="• Built during Carnegie Mellon’s NHSGA summer program (2022) over the course of two weeks with a team of four.
+• Developed an original VR game for the Oculus
+• Designed and implemented the game’s magic system and all of its practical effects."
+                    source = {"https://drive.google.com/file/d/1CyJdFpQ0BFhUxYnTyig1QHfmQmsgoxYq/preview"} sourceType = "iframe"/>
 
                     </div>
                     <div className = "flex flex-col flex-1">
                         <VerticalElement title= "Brat Weather" description="• Used Nominatim + NWS API for a weather app in Charli XCX’s Brat theme
 • Flask backend + React frontend, deployed on Vercel
 • Click image to view!" source = {brat} sourceType = "Image" link = "https://brat-weather.vercel.app/"/>
-                        <VerticalElement title= "Brat Weather" description="• Used Nominatim + NWS API for a weather app in Charli XCX’s Brat theme
-• Flask backend + React frontend, deployed on Vercel
-• Click image to view!" source = {brat} sourceType = "Image" link = "https://brat-weather.vercel.app/"/>
+                        <VerticalElement title= "Losing My Marbles" description="• Built during Carnegie Mellon’s NHSGA summer program (2022) over one week with a team of four.
+• Created a modern remix of the classic arcade game Marble Madness.
+• Collaborated with another developer to design and implement enemy movement and custom shaders" 
+source = {"https://drive.google.com/file/d/1VZZoSYG17cgjqMhPVpul_8soRMFjwZNL/preview"} sourceType = "iframe" />
                     </div>
                 </div>
             </div>
