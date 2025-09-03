@@ -90,8 +90,9 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center text-center flex-grow py-20">
-            <h1 id="project-text" className="flex text-3xl text-center items-center justify-center pb-10 md:text-8xl">Here are some things I've done!</h1>
+        <div className="flex flex-col px-10 items-center justify-center text-center flex-grow py-20">
+          <div className="flex flex-col text-center items-center justify-center">
+            <h1 id="project-text" className="text-3xl pb-10  md:text-8xl">Here are some things I've done!</h1>
 
           <div className="flex justify-center px-6">
             <div id="project-cards" className="flex flex-col md:flex-row py-5 rounded-lg items-stretch md:px-16 justify-center text-center gap-6 max-w-7xl">
@@ -133,7 +134,7 @@ function Home() {
                   </a>
                 </div>
               </div>
-
+            </div>
             </div>
           </div>
 
