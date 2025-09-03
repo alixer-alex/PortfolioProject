@@ -16,15 +16,15 @@ function HorizontalElement(props){
         
         return(
             <>
-            <div className = "flex p-2 border-b-2">
-                <div className = "flex flex-col p-2 w-1/2">
+            <div className = "flex md:flex-row flex-col p-2 border-b-2">
+                <div className = "flex flex-col p-2 md:w-1/2">
                     <h2 className="text-3xl">{props.title}</h2>
                     <p style = {{ whiteSpace: 'pre-wrap' }}className="pt-2 px-5">
                         {props.description}
 
                     </p>
                 </div>
-                <div className="w-1/2 flex ">
+                <div className="md:w-1/2 flex ">
                     <video controls className=" w-full object-fill rounded ">
                         <source src={props.source} type="video/mp4" />
                     </video>
@@ -36,15 +36,15 @@ function HorizontalElement(props){
     }
     return(
         <>
-        <div className = "flex p-2 border-b-2">
-            <div className = "flex flex-col p-2 w-1/2">
+        <div className = "flex md:flex-row flex-col p-2 border-b-2">
+            <div className = "flex flex-col p-2 md:w-1/2">
                 <h2 className="text-3xl">{props.title}</h2>
                 <p style = {{ whiteSpace: 'pre-wrap' }}className="pt-2 px-5">
                     {props.description}
 
                 </p>
             </div>
-            <div className="w-1/2 flex ">
+            <div className="md:w-1/2 flex ">
                 <a href={props.link} target="_blank" rel="noreferrer">
                     <img src={props.source} className="px-2 object-cover aspect-video" alt="" />
                 </a>
@@ -109,18 +109,18 @@ function ProjectNewspaper(){
     )
     return(
         <div ref={root} id = "smooth-wrapper" >
-            <div id = "smooth-content" className=" flex min-h-screen font-serif py-2 min-w-screen items-center text-center justify-center ">
-            <div  className = "flex flex-col max-w-7xl bg-radial from-newspaper to-black to-800%">
-                    <div className="flex border-double border-4 px-8 py-4 items-center  justify-between ">
-                        <div className = "h-32 w-32"></div>
-                        <h1 className=" text-7xl">My Projects!</h1>
-                        <img src={rose} className=" object-cover h-32 w-32 " /> 
+            <div id = "smooth-content" className=" flex min-h-screen font-serif  px-2 md:p-0 py-2 min-w-screen items-center text-center justify-center ">
+            <div className = "flex flex-col  md:max-w-7xl bg-radial from-newspaper to-black to-800%">
+                    <div className="flex border-double border-4 px-8 py-4 items-center text-center justify-between ">
+                        <div className = "h-16 w-16 md:flex md:h-32 md:w-32"></div>
+                        <h1 className=" flex text-4xl md:text-7xl">My Projects!</h1>
+                        <img src={rose} className=" flex object-cover h-16 w-16 md:h-32 md:w-32 " /> 
                     </div>
-                <div className = "flex border-double border-l-4 border-r-4  text-2xl min-w-7xl justify-center">
+                <div className = "flex border-double border-l-4 border-r-4  text-2xl md:min-w-7xl justify-center">
                     {days[currentDate.getDay()]}, {months[currentDate.getMonth()]} {currentDate.getDay()}, {currentDate.getFullYear()}
                 </div>
-                <div className = "flex border-double border-4 min-w-7xl min-h-screen">
-                    <div className = "flex flex-col flex-2 border-r items-stretch  w-full">
+                <div className = "flex flex-col md:flex-row border-double border-4 md:min-w-7xl md:min-h-screen">
+                    <div className = "flex flex-col flex-2 border-r text-center items-center md:items-stretch w-full">
                     <HorizontalElement title= "Checkers AI" 
                     description="• Developed a competitive Checkers AI from scratch, achieving a ∼70% win rate 
 • Deployed the Monte Carlo Tree Search algorithm to make moves, reaching 99% accuracy  
