@@ -14,6 +14,7 @@ import checkers from './assets/Checkers.mp4'
 import searchengine from './assets/searchEngine.mp4'
 import brat from './assets/Brat.png'
 
+
 gsap.registerPlugin(useGSAP, InertiaPlugin, Draggable, SplitText, ScrollTrigger, ScrollSmoother)
 
 function Home() {

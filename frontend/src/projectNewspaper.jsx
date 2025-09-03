@@ -10,7 +10,7 @@ import checkers from './assets/Checkers.mp4'
 import searchengine from './assets/searchEngine.mp4'
 import brat from './assets/Brat.png'
 import rose from './assets/rose.svg'
-
+import portfolio from './assets/portfolio.png'
 function HorizontalElement(props){
     if (props.sourceType =="Video"){
         
@@ -69,7 +69,7 @@ function HorizontalElement(props){
             </div>
             <div className="md:w-1/2 flex ">
                 <a href={props.link} target="_blank" rel="noreferrer">
-                    <img src={props.source} className="px-2 object-cover aspect-video" alt="" />
+                    <img src={props.source} className="px-2 object-fill aspect-video" alt="" />
                 </a>
             </div>
         </div>
@@ -120,7 +120,7 @@ function VerticalElement(props){
                     {props.description}
                 </p>
                 <a href={props.link} target="_blank" rel="noreferrer">
-                    <img src={props.source} className="px-2 object-cover aspect-video" alt="" />
+                    <img src={props.source} className="px-2 object-contain aspect-video" alt="" />
                 </a>
             </div>
         </>
@@ -190,6 +190,9 @@ function ProjectNewspaper(){
 • Created a modern remix of the classic arcade game Marble Madness.
 • Collaborated with another developer to design and implement enemy movement and custom shaders" 
 source = {"https://drive.google.com/file/d/1VZZoSYG17cgjqMhPVpul_8soRMFjwZNL/preview"} sourceType = "iframe" />
+                        <VerticalElement title= "This Site!" description="• Used React and Tailwind to design a custom portfolio website
+• Utilised GSAP for animations
+• Created Crawler Traps (like this) to ward off bots" source = {portfolio} sourceType = "Image" link = "/"/>
                     </div>
                 </div>
             </div>
