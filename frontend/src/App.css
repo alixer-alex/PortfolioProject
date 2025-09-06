@@ -1,6 +1,15 @@
 @import "tailwindcss";
 
 @theme {
+    --font-helvetica:  "HelveticaCustom", "Helvetica", sans-serif;
 
     --color-newspaper: #d6d6c1;
 }
+
+@font-face {
+      font-family: 'HelveticaCustom'; /* Choose a name for your font family */
+      src: url('./assets/NimbusSanL-Reg.otf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+}
+

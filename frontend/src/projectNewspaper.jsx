@@ -83,7 +83,7 @@ function VerticalElement(props){
         <>
             <div className ="flex flex-col p-2 border-b-2 ">
                 <h2 className="text-3xl">{props.title}</h2>
-                <p style = {{ whiteSpace: 'pre-wrap' }} className="pt-2 px-5">
+                <p style = {{ whiteSpace: 'pre-wrap' }} className="py-2 px-5">
                     {props.description}
                 </p>
                 <video controls className=" w-full  object-fill rounded ">
@@ -99,7 +99,7 @@ function VerticalElement(props){
         <>
             <div className ="flex flex-col p-2 border-b-2 ">
                 <h2 className="text-3xl">{props.title}</h2>
-                <p style = {{ whiteSpace: 'pre-wrap' }} className="pt-2 px-5">
+                <p style = {{ whiteSpace: 'pre-wrap' }} className="py-2 px-5">
                     {props.description}
                 </p>
                 <iframe
@@ -116,7 +116,7 @@ function VerticalElement(props){
         <>
             <div className ="flex flex-col p-2 border-b-2">
                 <h2 className="text-3xl">{props.title}</h2>
-                <p style = {{ whiteSpace: 'pre-wrap' }} className="pt-2 px-5">
+                <p style = {{ whiteSpace: 'pre-wrap' }} className="py-2 px-5">
                     {props.description}
                 </p>
                 <a href={props.link} target="_blank" rel="noreferrer">
@@ -151,7 +151,7 @@ function ProjectNewspaper(){
     )
     return(
         <div ref={root} id = "smooth-wrapper" >
-            <div id = "smooth-content" className=" flex min-h-screen font-serif  px-2 md:p-0 py-2 min-w-screen items-center text-center justify-center ">
+            <div id = "smooth-content" className=" flex min-h-screen font-helvetica  px-2 md:p-0 py-2 min-w-screen items-center text-center justify-center ">
             <div className = "flex flex-col  md:max-w-7xl bg-radial from-newspaper to-black to-800%">
                     <div className="flex border-double border-4 px-2 md:px-8 py-4 items-center text-center justify-between ">
                         <div className = "h-8 w-8 md:flex md:h-32 md:w-32 "></div>

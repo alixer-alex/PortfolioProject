@@ -70,7 +70,7 @@ function Home() {
 
   return (
     <div ref={root} id="smooth-wrapper">
-      <div id="smooth-content" className="flex flex-col min-h-screen">
+      <div id="smooth-content" className="flex flex-col min-h-screen font-helvetica ">
 
         <div className="flex flex-col flex-grow px-25 items-center justify-center min-h-screen">
           <div className="flex flex-col text-center items-center justify-center ">
