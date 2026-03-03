@@ -10,9 +10,7 @@ import { Draggable } from 'gsap/Draggable'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'
 import seals from './assets/seals.JPG'
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
-import checkers from './assets/Checkers.mp4'
-import searchengine from './assets/searchEngine.mp4'
-import brat from './assets/Brat.png'
+import { boxconst } from './boxconst';
 
 
 gsap.registerPlugin(useGSAP, InertiaPlugin, Draggable, SplitText, ScrollTrigger, ScrollSmoother)
@@ -99,45 +97,29 @@ function Home() {
 
           <div className="flex justify-center px-6">
             <div id="project-cards" className="flex flex-col md:flex-row py-5 rounded-lg items-stretch md:px-16 justify-center text-center gap-6 max-w-7xl">
-              
-              <div className="project-card py-5 flex-1 flex flex-col shadow-lg border-2 rounded-sm bg-white">
-                <h2 className="text-3xl">Checkers AI</h2>
-                <p className="pt-2 px-5">
-                  • Developed a competitive Checkers AI from scratch, achieving a ∼70% win rate<br />
-                  • Deployed the Monte Carlo Tree Search algorithm to make moves, reaching 99% accuracy<br />
-                  • Optimized decision-making to ~30s per move through pruning & evaluation
-                </p>
-                <video controls className="px-2 pt-2 mt-auto object-cover aspect-video">
-                  <source src={checkers} type="video/mp4" />
-                </video>
-              </div>
-
-              <div className="project-card py-5 flex-1 flex flex-col shadow-lg border-2 rounded-sm bg-white">
-                <h2 className="text-3xl">Web Crawler</h2>
-                <p className="pt-2 px-5">
-                  • Engineered a high-performance search engine indexing 50K+ docs<br />
-                  • Built proprietary crawler + inverted index with SimHash + PageRank<br />
-                  • Achieved sub-0.3s latency with optimized indexing, caching, and ranking
-                </p>
-                <video controls className="px-2 pt-2 mt-auto object-cover aspect-video">
-                  <source src={searchengine} type="video/mp4" />
-                </video>
-              </div>
-
-              <div className="project-card py-5 flex-1 flex flex-col shadow-lg border-2 rounded-sm bg-white">
-                <h2 className="text-3xl">Brat Weather</h2>
-                <p className="pt-2 px-5">
-                  • Used Nominatim + NWS API for a weather app in Charli XCX’s Brat theme<br />
-                  • Flask backend + React frontend, deployed on Vercel<br />
-                  • Click image to view!
-                </p>
-                <div className="pt-2 mt-auto">
-                  <a href="https://brat-weather.vercel.app/" target="_blank" rel="noreferrer">
-                    <img src={brat} className="px-2 object-cover aspect-video" alt="Brat Weather" />
-                  </a>
-                </div>
-              </div>
-            </div>
+              {boxconst.map((item, index) => {
+                return (
+                  <div className="project-card py-5 flex-1 flex flex-col shadow-lg border-2 rounded-sm bg-white">
+                    <h2 className="text-3xl">{item.Title}</h2>
+                    <p className="pt-2 px-5" >
+                                          
+                    {item.Description.map((line, idx) => (
+                      <span key={idx}>
+                        {line}  
+                        <br />
+                      </span>
+                    ))}
+                    </p>
+                    {item.Type === "video" ? (
+                      <video controls className="px-2 pt-2 mt-auto object-cover aspect-video">
+                        <source src={item.MediaSrc} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={item.MediaSrc} alt={item.Title} className="px-2 pt-2 mt-auto object-cover aspect-video" />
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
 
@@ -146,18 +128,18 @@ function Home() {
           </div>
         </div>
 
-        <footer id="footer" className="w-full  mt-auto py-6 bg-white">
-          <h2 className="text-6xl text-center mb-6"></h2>
-          <div className="flex flex-col pt-5 border-t md:flex-row items-center justify-center px-8 text-lg gap-4">
-            <div className="text-sm text-gray-500 text-center md:text-right ml-auto">
-              ©2025 Alex Zhuang. All rights reserved.
+          <footer id="footer" className="w-full  mt-auto py-6 bg-white">
+            <h2 className="text-6xl text-center mb-6"></h2>
+            <div className="flex flex-col pt-5 border-t md:flex-row items-center justify-center px-8 text-lg gap-4">
+              <div className="text-sm text-gray-500 text-center md:text-right ml-auto">
+                ©2025 Alex Zhuang. All rights reserved.
+              </div>
             </div>
-          </div>
-        </footer>
-
+          </footer>
+        </div>
       </div>
     </div>
   )
 }
 
-export default Home
+export default Home;
